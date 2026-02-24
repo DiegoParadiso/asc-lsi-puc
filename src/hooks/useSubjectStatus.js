@@ -4,20 +4,9 @@ export const useSubjectStatus = (planId, initialSubjects) => {
     const [userStatuses, setUserStatuses] = useState(() => {
         try {
             const savedStr = localStorage.getItem(`fceqyn-status-v3-${planId}`);
-            const saved = savedStr ? JSON.parse(savedStr) : {};
-
-            const defaultStatuses = {};
-            initialSubjects.forEach(s => {
-                if (s.status === 'Aprobado') {
-                    defaultStatuses[s.id] = 'Aprobada';
-                } else if (s.status === 'Regularidad' || s.status === 'Regularizada') {
-                    defaultStatuses[s.id] = 'Regularizada';
-                }
-            });
-
-            // Merge manually saved states over defaults.
-            // If a user forced a default Aprobada subject back to Pendiente, 'saved' will preserve 'Pendiente'.
-            return { ...defaultStatuses, ...saved };
+            // Only use what this user has explicitly saved — no seeded defaults.
+            // New users start with an empty object (all Pendiente).
+            return savedStr ? JSON.parse(savedStr) : {};
         } catch (e) {
             console.error("Error loading statuses:", e);
             return {};
