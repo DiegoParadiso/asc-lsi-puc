@@ -1,0 +1,121 @@
+.stats-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+}
+
+.stats-progress {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+}
+
+.stats-pct {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-main);
+    min-width: 2.5rem;
+    letter-spacing: -0.05em;
+}
+
+.stats-track {
+    width: 70px;
+    height: 5px;
+    background: #e4e4e7;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.stats-fill {
+    height: 100%;
+    background: #18181b;
+    border-radius: 999px;
+    transition: width 0.4s ease;
+}
+
+.stats-divider {
+    width: 1px;
+    height: 24px;
+    background: var(--panel-border);
+    flex-shrink: 0;
+}
+
+.stats-items {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.stats-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.stats-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.stats-count {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.stats-label {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+.stats-item.total .stats-count {
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+/* ── MOBILE ─────────────────── */
+@media (max-width: 600px) {
+    .stats-bar {
+        gap: 0.5rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .stats-divider {
+        display: none;
+    }
+
+    .stats-pct {
+        font-size: 1rem;
+    }
+
+    .stats-track {
+        width: 50px;
+    }
+
+    .stats-items {
+        gap: 0.6rem;
+        width: 100%;
+    }
+
+    .stats-label {
+        display: none;
+        /* just show counts + dots on mobile to save space */
+    }
+
+    .stats-item {
+        gap: 0.2rem;
+    }
+}

@@ -1,0 +1,170 @@
+.study-grid-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0.75rem;
+    padding-bottom: 6rem;
+    background: var(--bg-color);
+}
+
+/* ── INTEGRATED HEADER ─────────────────────────────── */
+.integrated-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem 2rem;
+    background: var(--panel-bg);
+    border-radius: 8px;
+    border: 1px solid var(--panel-border);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 1rem;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    width: auto;
+    height: 56px;
+    object-fit: contain;
+    max-width: 320px;
+}
+
+/* ── LEGEND ─────────────────────────────────────────── */
+.legend-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--panel-bg);
+    border-radius: 9999px;
+    border: 1px solid var(--panel-border);
+    flex-wrap: wrap;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.legend-color {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+}
+
+/* ── MAIN GRID CONTENT ──────────────────────────────── */
+.study-grid-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ── YEAR GROUP ─────────────────────────────────────── */
+.year-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.year-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--panel-border);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.year-periods {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.period-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.period-title {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+}
+
+.subjects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+/* ── MOBILE RESPONSIVE ──────────────────────────────── */
+@media (max-width: 600px) {
+    .study-grid-wrapper {
+        padding: 0.5rem;
+        padding-bottom: 4rem;
+    }
+
+    .integrated-header {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 0.5rem 0.75rem;
+        margin-bottom: 0.75rem;
+        gap: 0.5rem;
+        justify-content: space-between;
+    }
+
+    /* Hide logo on mobile - plan selector takes full relevance */
+    .logo-icon {
+        display: none;
+    }
+
+    .legend-container {
+        gap: 0.5rem;
+        padding: 0.4rem 0.75rem;
+    }
+
+    .legend-item {
+        font-size: 0.65rem;
+    }
+
+    .year-periods {
+        grid-template-columns: 1fr;
+        /* Stack columns on mobile */
+        gap: 0.75rem;
+    }
+
+    .study-grid-content {
+        gap: 1.25rem;
+    }
+
+    .year-title {
+        font-size: 0.85rem;
+    }
+}

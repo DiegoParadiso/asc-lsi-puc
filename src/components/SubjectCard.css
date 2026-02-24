@@ -1,0 +1,117 @@
+.subject-card {
+    position: relative;
+    padding: 0.35rem 0.6rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    transition: all 0.15s ease;
+    overflow: hidden;
+    user-select: none;
+    border-radius: 4px;
+    min-height: 48px;
+    justify-content: center;
+    background: #ffffff;
+    /* pure flat white */
+    border: 1px solid var(--panel-border);
+}
+
+.subject-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: transparent;
+    transition: background 0.15s ease;
+}
+
+/* Minimalist colored left borders */
+.subject-card.status-aprobada {
+    border-color: var(--status-aprobado-bg);
+}
+
+.subject-card.status-aprobada::before {
+    background: var(--status-aprobado-bg);
+}
+
+.subject-card.status-regularizada {
+    border-color: var(--status-regular-bg);
+}
+
+.subject-card.status-regularizada::before {
+    background: var(--status-regular-bg);
+}
+
+.subject-card.status-podes-cursar {
+    border-color: var(--status-curso-bg);
+}
+
+.subject-card.status-podes-cursar::before {
+    background: var(--status-curso-bg);
+}
+
+.subject-card.status-pendiente {
+    border-color: var(--status-none-border);
+}
+
+.subject-card.status-pendiente::before {
+    background: var(--status-none-border);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Minimalist ID badge */
+.subject-id {
+    font-size: 0.55rem;
+    font-weight: 700;
+    color: #a1a1aa;
+    /* clean grey */
+    letter-spacing: 0.05em;
+    background: #f4f4f5;
+    /* clean light grey bg */
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+}
+
+.subject-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-main);
+    line-height: 1.1;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* View states mapping */
+.subject-card.highlight-dimmed {
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+.subject-card.highlight-dependency {
+    z-index: 10;
+    opacity: 1;
+    filter: none;
+}
+
+.subject-card.highlight-dependent {
+    z-index: 10;
+    opacity: 1;
+    filter: none;
+}
+
+.subject-card.highlight-active {
+    z-index: 20;
+    opacity: 1;
+    filter: none;
+}

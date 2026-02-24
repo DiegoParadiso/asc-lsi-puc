@@ -1,0 +1,213 @@
+.subject-details {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+}
+
+.title-area {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.details-id {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    width: fit-content;
+}
+
+.details-status {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    width: fit-content;
+}
+
+.badge-aprobado {
+    background: var(--status-aprobado-bg);
+    color: var(--status-aprobado-text);
+    border: 1px solid var(--status-aprobado-border);
+}
+
+.badge-regularizada {
+    background: var(--status-regular-bg);
+    color: var(--status-regular-text);
+    border: 1px solid var(--status-regular-border);
+}
+
+.badge-en-curso {
+    background: var(--status-curso-bg);
+    color: var(--status-curso-text);
+    border: 1px solid var(--status-curso-border);
+}
+
+.badge-none {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+}
+
+.close-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.details-title {
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+
+.details-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 80px;
+}
+
+.meta-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.meta-value {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.score {
+    color: var(--status-aprobado-text);
+}
+
+.correlatives-section {
+    margin-bottom: 2rem;
+}
+
+.correlatives-section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--panel-border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.correlatives-group {
+    margin-bottom: 1.5rem;
+}
+
+.group-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.75rem;
+}
+
+.group-title svg {
+    color: var(--accent-hover);
+}
+
+.correlatives-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.correlatives-list li {
+    font-size: 0.875rem;
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.75rem;
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-color);
+    line-height: 1.4;
+}
+
+.clickable-correlative {
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.clickable-correlative:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.c-id {
+    font-weight: 700;
+    color: var(--accent-hover);
+    margin-right: 0.25rem;
+}
+
+.no-correlatives {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: -0.25rem;
+}
+
+.dependent-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-left-color: var(--status-regular-text);
+}
+
+.dependent-icon {
+    color: var(--text-muted);
+    flex-shrink: 0;
+}

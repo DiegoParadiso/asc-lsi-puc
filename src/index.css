@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Flat Minimalist Colors */
+  --bg-color: #fafafa;
+  --panel-bg: #ffffff;
+  --panel-border: #e4e4e7;
+
+  --text-main: #18181b;
+  --text-muted: #71717a;
+
+  --accent-color: #3b82f6;
+  --accent-hover: #2563eb;
+
+  /* Solid, flat minimalist indicators */
+  /* Replaced pastel backgrounds with high-contrast strong indicators for borders */
+  --status-aprobado-bg: #10b981;
+  --status-aprobado-border: #059669;
+  --status-aprobado-text: #18181b;
+
+  --status-regular-bg: #f59e0b;
+  --status-regular-border: #d97706;
+  --status-regular-text: #18181b;
+
+  --status-curso-bg: #3b82f6;
+  --status-curso-border: #2563eb;
+  --status-curso-text: #18181b;
+
+  --status-none-bg: #e4e4e7;
+  --status-none-border: #d4d4d8;
+  --status-none-text: #71717a;
+
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f4f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+/* Removed glassmorphism, flat panels instead */
+.glass-panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
