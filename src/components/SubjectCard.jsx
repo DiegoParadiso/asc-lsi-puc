@@ -16,15 +16,15 @@ const SubjectCard = ({
 
         if (activeSubject.id === subject.id) return 'active';
 
-        const isRequiredToCourse = activeSubject.correlatives.toCourse.includes(subject.id);
-        const isRequiredToApprove = activeSubject.correlatives.toApprove.includes(subject.id);
+        const isRequiredToCourse = activeSubject.correlatives.toCourse.some(req => req.id === subject.id);
+        const isRequiredToApprove = activeSubject.correlatives.toApprove.some(req => req.id === subject.id);
 
         if (isRequiredToCourse || isRequiredToApprove) {
             return 'dependency';
         }
 
-        const activeIsRequiredToCourse = subject.correlatives.toCourse.includes(activeSubject.id);
-        const activeIsRequiredToApprove = subject.correlatives.toApprove.includes(activeSubject.id);
+        const activeIsRequiredToCourse = subject.correlatives.toCourse.some(req => req.id === activeSubject.id);
+        const activeIsRequiredToApprove = subject.correlatives.toApprove.some(req => req.id === activeSubject.id);
 
         if (activeIsRequiredToCourse || activeIsRequiredToApprove) {
             return 'dependent';

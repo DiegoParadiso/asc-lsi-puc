@@ -1,10 +1,7 @@
 // src/utils/correlativity.js
+// Correlatives are now { id, condition } objects
 
-export const checkCorrelativity = (subject, allSubjects) => {
-    // Helpers to get direct dependencies
-    // toCourse: subjects required to "cursar"
-    // toApprove: subjects required to "aprobar"
-
+export const checkCorrelativity = (subject) => {
     return {
         toCourse: subject.correlatives.toCourse,
         toApprove: subject.correlatives.toApprove
@@ -12,11 +9,13 @@ export const checkCorrelativity = (subject, allSubjects) => {
 };
 
 export const getDependents = (subjectId, allSubjects) => {
-    // Returns IDs of subjects that require `subjectId` to be regularized or approved
+    // Returns IDs of subjects that require `subjectId` as a prerequisite
     const dependents = [];
 
     allSubjects.forEach(s => {
-        if (s.correlatives.toCourse.includes(subjectId) || s.correlatives.toApprove.includes(subjectId)) {
+        const inToCourse = s.correlatives.toCourse.some(req => req.id === subjectId);
+        const inToApprove = s.correlatives.toApprove.some(req => req.id === subjectId);
+        if (inToCourse || inToApprove) {
             dependents.push(s.id);
         }
     });

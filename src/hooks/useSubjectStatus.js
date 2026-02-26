@@ -1,5 +1,17 @@
 import { useState, useEffect, useMemo } from 'react';
 
+// Checks if a subject status satisfies a required condition
+const satisfiesCondition = (actualStatus, requiredCondition) => {
+    if (requiredCondition === 'Regularizada') {
+        // Regularizada OR Aprobada both satisfy 'Regularizada' requirement
+        return actualStatus === 'Regularizada' || actualStatus === 'Aprobada';
+    }
+    if (requiredCondition === 'Aprobada') {
+        return actualStatus === 'Aprobada';
+    }
+    return false;
+};
+
 export const useSubjectStatus = (planId, initialSubjects) => {
     const [userStatuses, setUserStatuses] = useState(() => {
         try {
@@ -41,13 +53,14 @@ export const useSubjectStatus = (planId, initialSubjects) => {
 
             if (finalStatus === 'Pendiente') {
                 // Evaluate dynamic "Podes Cursar"
-                const requiredToCourseIds = subject.correlatives.toCourse || [];
+                // Each req is { id, condition } — check each prereq meets its required condition
+                const requiredToCourse = subject.correlatives.toCourse || [];
 
                 let canCourse = true;
-                if (requiredToCourseIds.length > 0) {
-                    canCourse = requiredToCourseIds.every(reqId => {
-                        const reqStatus = userStatuses[reqId];
-                        return reqStatus === 'Aprobada' || reqStatus === 'Regularizada';
+                if (requiredToCourse.length > 0) {
+                    canCourse = requiredToCourse.every(req => {
+                        const actualStatus = userStatuses[req.id] || 'Pendiente';
+                        return satisfiesCondition(actualStatus, req.condition);
                     });
                 }
 
